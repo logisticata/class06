@@ -1,0 +1,157 @@
+---
+title: "Dimensionamento de frotas"
+subtitle: "Logística de Transportes e Armazenagem"
+author: 
+  - <br></br>Renata Oliveira
+encoding: UTF-8
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: ["default", "xaringan-themer.css"]
+
+    nature:
+      ratio: "16:9"
+      highlightLines: true
+      highlightStyle: solarized-light
+      countIncrementalSlides: false
+      slideNumberFormat: |
+         <div class="progress-bar-container">
+           <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+           </div>
+         </div>
+
+---
+
+```{R child = "setup.Rmd"}
+```
+
+```{r xaringan-tile-view, echo=FALSE}
+xaringanExtra::use_tile_view()
+```
+
+```{r xaringan-editable, echo=FALSE}
+xaringanExtra::use_editable(expires = 1)
+```
+
+```{r xaringan-panelset, echo=FALSE, message=FALSE, warning=FALSE}
+xaringanExtra::use_panelset()
+```
+
+```{r xaringanExtra-clipboard, echo=FALSE}
+htmltools::tagList(
+  xaringanExtra::use_clipboard(
+    button_text = "<i class=\"fa fa-clipboard\"></i>",
+    success_text = "<i class=\"fa fa-check\" style=\"color: #90BE6D\"></i>",
+    error_text = "<i class=\"fa fa-times-circle\" style=\"color: #F94144\"></i>"
+  ),
+  rmarkdown::html_dependency_font_awesome()
+)
+```
+
+```{r xaringan-fit-screen, echo=FALSE}
+xaringanExtra::use_fit_screen()
+```
+
+```{r xaringan-extra-styles, echo=FALSE}
+xaringanExtra::use_extra_styles(
+  hover_code_line = TRUE,         #<<
+  mute_unhighlighted_code = TRUE  #<<
+)
+```
+
+```{r xaringan-scribble, echo=FALSE}
+xaringanExtra::use_scribble()
+```
+
+
+## Indicadores de Tempo
+
+- Referem-se aos tempos previstos e gastos nos deslocamentos das quantidades envolvidas   
+
+–	Estes são obtidos pelos produtos das quantidades envolvidas pelos correspondentes tempos gastos nas operações   
+   »	Exemplo de indicadores de tempo   
+   »	veíc - dia = dias dos veículos no período   
+   »	veíc - hora = horas dos veículos no período   
+   
+–	As estatísticas por veículos, viagem etc são registrados em horas e minutos, no período considerado   
+
+–	Apenas a soma dos tempos é arredondada para que se evite distorções dos resultados   
+
+---
+
+## Indicadores de Tempo
+
+**Conceito de Existência (VHE)**   
+- Existência = tempo total de todos os veículos que integraram a frota durante o período considerado.
+
+**Conceito de Imobilização (VHI)**   
+- Dentro de oficinas para reparos devidos acidentes e defeitos e para manutenções correntes e pesados.
+-	Imob. = veículos-hora imobilizados em oficinas = VHI
+>	Os tempos de imobilização são contados somente em veículos dentro das oficinas
+
+---
+
+## Indicadores de Tempo
+
+**Conceito de Avarias em trânsito (VHA)**   
+- Oficina, após remoção, ou até sua plena reparação no próprio local. Pode gerar impacto, se em via de tráfego forçado, na circulação de outros veículos ou composições.
+- Conflito se deve ser alocado à imobilização ou à não utilização da disponibilidade
+
+---
+
+## Indicadores de Tempo
+
+**Utilização da disponibilidade (VHU)**   
+- O veículo-hora efetivamente utilizado para produção (em trem, em manobra)
+
+**Não Utilização da Disponibilidade (VHNU)**
+- Paralização = veíc. hora (existentes - imobilizados — avariados em trânsito — utilizados) no mês
+
+
+---
+## Indicadores de Tempo
+
+**Conceito de Rotação de ciclo**
+- Considera os tempos de um veículo desde o início de um carregamento, englobando tempos de carregamentos na origem, viagem de ida (percurso carregado), descarga no destino e viagem de volta (percurso de vazio) até o ponto do carregamento subseqüente n + 1.
+
+C = Tc + Tvc + Td + Tvv
+
+.midi[
+–	C = Ciclo   
+–	Tt = Tempo em terminais = Tc + Td   
+–	Tc = Tempo de carregamento   
+–	Td = Tempo de descarga   
+–	Tv = Tempo de viagem = Tvc + Tvv   
+–	Tvc = Tempo de viagem do veículo carregado   
+–	Tvv = Tempo de viagem do veículo vazio   
+]
+
+---
+
+## Dimensionamento de Frotas
+
+## Exercício
+
+Para uma frota de 10 veículos, tem-se o horizonte de planejamento de um mês (30 dias). Sabe-se que 15% da frota está constantemente imobilizada. Sabe-se ainda que 5% da frota não produz transporte devido a avarias ao longo do percurso. A eficiência operacional (oferta) que visa a adequação da frota à demanda por transporte é baixa, pois há uma carência de profissionais para alocação de veículos de forma adequada aos fluxos de transporte. Assim, os veículos destinados à produção ficam parados por cerca de 30% do tempo. 
+
+Pede-se:
+
+Determine o total de veículos-hora efetivamente utilizados na produção de transporte. Demonstre esse cálculo, considerando cada parcela que compõe as horas efetivamente utilizadas na produção.
+
+
+---
+
+
+class: center, middle
+
+.huge[
+**DÚVIDAS?**
+]
+
+
+---
+
+
+
+
+
