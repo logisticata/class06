@@ -109,9 +109,11 @@ xaringanExtra::use_scribble()
 
 
 ---
+
 ## Indicadores de Tempo
 
 **Conceito de Rotação de ciclo**
+
 - Considera os tempos de um veículo desde o início de um carregamento, englobando tempos de carregamentos na origem, viagem de ida (percurso carregado), descarga no destino e viagem de volta (percurso de vazio) até o ponto do carregamento subseqüente n + 1.
 
 C = Tc + Tvc + Td + Tvv
@@ -140,7 +142,6 @@ Determine o total de veículos-hora efetivamente utilizados na produção de tra
 
 
 ---
-
 
 class: center, middle
 
